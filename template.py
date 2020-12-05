@@ -1,3 +1,5 @@
+from rich import print
+
 def solve_part_1(puzzle_input):
     return ""
 

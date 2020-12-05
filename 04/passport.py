@@ -91,7 +91,7 @@ if __name__ == "__main__":
     puzzle_input = get_puzzle_input()
 
     answer_1 = solve_part_1(puzzle_input)
-    print(f"Part 1: {answer_1}")
+    print(f"[bold]Part 1[/bold]: {answer_1}", highlight=False)
 
     answer_2 = solve_part_2(puzzle_input)
-    print(f"Part 2: {answer_2}")
+    print(f"[bold]Part 2[/bold]: {answer_2}", highlight=False)
