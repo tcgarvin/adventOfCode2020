@@ -4,8 +4,8 @@ from rich import print
 def solve_part_1(puzzle_input):
     total = 0
     for group in puzzle_input:
-        all_questions = reduce(lambda a,b: a | b, group)
-        total += len(all_questions)
+        any_answered = reduce(lambda a,b: a | b, group)
+        total += len(any_answered)
 
     return total
 
@@ -14,8 +14,8 @@ def solve_part_2(puzzle_input):
     total = 0
 
     for group in puzzle_input:
-        all_questions = reduce(lambda a,b: a & b, group)
-        total += len(all_questions)
+        all_answered = reduce(lambda a,b: a & b, group)
+        total += len(all_answered)
 
     return total
 
