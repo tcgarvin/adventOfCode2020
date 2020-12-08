@@ -15,10 +15,10 @@ def run(code):
         if instruction == "nop":
             cursor += 1
 
-        if instruction == "jmp":
+        elif instruction == "jmp":
             cursor += amount
 
-        if instruction == "acc":
+        elif instruction == "acc":
             acc += amount
             cursor += 1
 
@@ -37,14 +37,14 @@ def solve_part_2(puzzle_input):
         if code_line[0] == "acc":
             continue
 
-        if code_line[0] == "nop":
+        elif code_line[0] == "nop":
             code_line[0] = "jmp"
             acc, state = run(puzzle_input)
             if state == "finished":
                 return acc
             code_line[0] = "nop"
 
-        if code_line[0] == "jmp":
+        elif code_line[0] == "jmp":
             code_line[0] = "nop"
             acc, state = run(puzzle_input)
             if state == "finished":
