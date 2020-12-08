@@ -10,7 +10,7 @@ def run(code):
 
         seen.add(cursor)
         
-        instruction, amount = puzzle_input[cursor]
+        instruction, amount = code[cursor]
 
         if instruction == "nop":
             cursor += 1
