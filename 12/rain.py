@@ -1,6 +1,6 @@
 from rich import print
 
-DIRECTIONS = ((1,0), (0,1), (-1,0), (0,-1))
+DIRECTIONS = ((1,0), (0,-1), (-1,0), (0,1))
 DIRECTION_INDEX = {
     "E": DIRECTIONS[0],
     "S": DIRECTIONS[1],
@@ -32,7 +32,36 @@ def solve_part_1(puzzle_input):
     return abs(curX) + abs(curY)
 
 def solve_part_2(puzzle_input):
-    return ""
+    curX = 0
+    curY = 0
+    wayX = 10
+    wayY = 1
+    for instruction, argument in puzzle_input:
+        if instruction in DIRECTION_INDEX:
+            dx, dy = DIRECTION_INDEX[instruction]
+            wayX += dx * argument
+            wayY += dy * argument
+
+        elif instruction == "L":
+            for _ in range(argument // 90):
+                temp = wayX
+                wayX = -wayY
+                wayY = temp
+
+        elif instruction == "R":
+            for _ in range(argument // 90):
+                temp = wayX
+                wayX = wayY
+                wayY = -temp
+
+        elif instruction == "F":
+            curX += wayX * argument
+            curY += wayY * argument
+
+        #print((curX, curY), (wayX, wayY))
+        #print()
+
+    return abs(curX) + abs(curY)
 
 def get_puzzle_input():
     puzzle_input = []
