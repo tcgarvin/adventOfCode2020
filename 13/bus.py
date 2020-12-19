@@ -26,19 +26,20 @@ def solve_part_2(timestamp, busses):
     priority_list = sorted(priority_list, reverse=True)
     print(priority_list)
 
-    base_bus, base_offset = priority_list.pop(0)
-
-    match = False
-    candidate = -base_offset
-    while match == False:
-        candidate += base_bus
-        match = True
-        for bus, offset in priority_list:
-            if (candidate + offset) % bus != 0:
-                match = False
+    step_size = 1
+    lcm = 1   # "least common mulitiple", but not really
+    for bus, offset in priority_list:
+        for multiple in range(bus):
+            candidate = lcm + step_size * multiple
+            if (candidate + offset) % bus == 0:
+                lcm = candidate
+                step_size *= bus
                 break
-            else:
-                print(bus, candidate)
+
+        print(f"{lcm} satisfies bus {bus} with offset {offset}")
+
+    for bus, offset in priority_list:
+        print(f"({lcm} + {offset}) % {bus} == {(lcm + offset) % bus}")
 
     return candidate
 
