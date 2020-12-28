@@ -208,7 +208,7 @@ def detect_sea_monster(grid, sea_monsters):
                 #print("found one")
                 sea_monsters[i:i+3, j:j+20] = SEA_MONSTER
 
-            elif mask_sum > 9:
+            #elif mask_sum > 9:
                 #print(grid[i:i+3, j:j+20])
                 #print(mask_sum)
 
