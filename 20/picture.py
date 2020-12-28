@@ -205,12 +205,12 @@ def detect_sea_monster(grid, sea_monsters):
         for j in range(12 * 8 - 19):
             mask_sum = np.sum(np.bitwise_and(SEA_MONSTER, grid[i:i+3, j:j+20]))
             if mask_sum == SEA_MONSTER_SUM:
-                print("found one")
+                #print("found one")
                 sea_monsters[i:i+3, j:j+20] = SEA_MONSTER
 
             elif mask_sum > 9:
-                print(grid[i:i+3, j:j+20])
-                print(mask_sum)
+                #print(grid[i:i+3, j:j+20])
+                #print(mask_sum)
 
 def get_puzzle_input():
     puzzle_input = []
